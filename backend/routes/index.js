@@ -15,6 +15,7 @@ router.post('/signin', validateLoginData, login);
 router.post('/signup', validateRegisterData, createUsers);
 router.use('/users', auth, routerUsers);
 router.use('/cards', auth, routerCards);
+
 router.use('*', auth, (req, res, next) => {
   next(new NotFoundError('Страница не найдена'));
 });
