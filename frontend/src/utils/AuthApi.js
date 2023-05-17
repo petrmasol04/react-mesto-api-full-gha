@@ -22,14 +22,16 @@ class AuthApi {
         return fetch(`${this._baseUrl}/signin`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            credentials: "include"
         }).then(res => this._handleRequest(res));
     }
 
     checkToken(token) {
         return fetch(`${this._baseUrl}/users/me`, {
             method: 'GET',
-            headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` }
+            headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+            credentials: "include"
         }).then(res => this._handleRequest(res));
     }
 }
