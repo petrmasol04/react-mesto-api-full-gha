@@ -1,0 +1,16 @@
+.card__remove {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 18px;
+    height: 19px;
+    background: transparent url(../../../images/urna.svg) no-repeat center;
+    border: none;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.card__remove:hover {
+    opacity: .6;
+    cursor: pointer;
+}

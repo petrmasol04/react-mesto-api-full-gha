@@ -1,0 +1,9 @@
+.section__text {
+    color: white;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    margin: 0;
+    padding-top: 15px;
+}

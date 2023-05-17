@@ -1,0 +1,8 @@
+.menu__link {
+    color: white;
+    text-decoration: none;
+}
+
+.menu__link:hover {
+    opacity: 0.6;
+}

@@ -1,0 +1,9 @@
+.menu {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    color: #FFFFFF;
+    gap: 24px;
+
+}

@@ -1,0 +1,8 @@
+.section__link {
+    text-decoration: none;
+    color: #fff;
+}
+
+.section__link:hover {
+    opacity: 0.85;
+}
