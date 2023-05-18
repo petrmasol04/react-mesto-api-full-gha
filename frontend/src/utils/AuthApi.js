@@ -27,15 +27,16 @@ class AuthApi {
         }).then(res => this._handleRequest(res));
     }
 
-    checkToken(token) {
+    checkToken() {
         return fetch(`${this._baseUrl}/users/me`, {
             method: 'GET',
-            headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+            headers: { "Content-Type": "application/json" },
             credentials: "include"
         }).then(res => this._handleRequest(res));
     }
 }
 
 export const authApi = new AuthApi({
-    baseUrl: 'https://auth.nomoreparties.co'
+    // baseUrl: 'https://auth.nomoreparties.co'
+    baseUrl: 'http://localhost:3000'
 });

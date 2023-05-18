@@ -35,14 +35,14 @@ function App() {
   const navigate = useNavigate();
 
   const tokenCheck = useCallback(() => {
-    const token = localStorage.getItem('token');
+    const isLogin = localStorage.getItem('isLogin');
 
-    if (token) {
+    if (isLogin) {
       authApi
-        .checkToken(token)
-        .then(({ data }) => {
+        .checkToken()
+        .then((user) => {
           setLoggedIn(true);
-          setUserEmail(data.email)
+          setUserEmail(user.email)
           navigate('/', { replace: true });
         })
         .catch((err) => {
@@ -51,23 +51,39 @@ function App() {
     } else {
       setLoggedIn(false);
     }
-  }, [])
+  }, [navigate])
+
+  // function closeAllPopups() {
+  //   setIsEditAvatarPopupOpen(false);
+  //   setIsEditProfilePopupOpen(false);
+  //   setIsAddPlacePopupOpen(false);
+  //   setIsInfoTooltipOpen(false);
+  //   setSelectedCard({ ...selectedCard, isOpen: false })
+  // }
+
+  const closeAllPopups = React.useCallback(() => {
+    setIsEditAvatarPopupOpen(false);
+    setIsEditProfilePopupOpen(false);
+    setIsAddPlacePopupOpen(false);
+    setIsInfoTooltipOpen(false);
+    setSelectedCard({ ...selectedCard, isOpen: false })
+  }, [selectedCard])
 
   React.useEffect(() => {
     tokenCheck();
     loggedIn && Promise.all([api.getUserInfo(), api.getInitialCards()])
       .then(([userData, cardsData]) => {
         setCurrentUser(userData);
-        setCards(cardsData)
+        setCards(cardsData.reverse())
       }).catch((err) => {
         console.log(err);
       });
-  }, [loggedIn])
+  }, [loggedIn, tokenCheck])
 
   function handleLogout() {
     setLoggedIn(false);
     setUserEmail('');
-    localStorage.removeItem('token');
+    localStorage.removeItem('isLogin');
     navigate('/sign-in', { replace: true });
   }
 
@@ -89,8 +105,8 @@ function App() {
   function handleLogin(data) {
     authApi
       .loginUser(data)
-      .then(({ token }) => {
-        localStorage.setItem('token', token)
+      .then(() => {
+        localStorage.setItem('isLogin', 'true')
         setLoggedIn(true);
         setUserEmail(data.email);
         navigate('/', { replace: true });
@@ -168,13 +184,7 @@ function App() {
     setSelectedCard({ name, link, isOpen: true })
   }
 
-  function closeAllPopups() {
-    setIsEditAvatarPopupOpen(false);
-    setIsEditProfilePopupOpen(false);
-    setIsAddPlacePopupOpen(false);
-    setIsInfoTooltipOpen(false);
-    setSelectedCard({ ...selectedCard, isOpen: false })
-  }
+
 
   const isOpen = isEditAvatarPopupOpen || isEditProfilePopupOpen || isAddPlacePopupOpen || selectedCard.isOpen || isInfoTooltipOpen
 
@@ -190,7 +200,7 @@ function App() {
         document.removeEventListener('keydown', closeByEscape);
       }
     }
-  }, [isOpen])
+  }, [isOpen, closeAllPopups])
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
