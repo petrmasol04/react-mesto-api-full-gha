@@ -37,6 +37,5 @@ class AuthApi {
 }
 
 export const authApi = new AuthApi({
-    // baseUrl: 'https://auth.nomoreparties.co'
-    baseUrl: 'http://localhost:3000'
+    baseUrl: 'https://api.mesto.world.nomoredomains.monster'
 });
