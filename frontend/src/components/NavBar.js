@@ -9,7 +9,7 @@ function NavBar({ userEmail, handleLogout }) {
                     <NavLink className='menu__link' to='/sign-in'>Войти</NavLink>
                 }> </Route>
                 <Route path='/sign-in' element={
-                    <NavLink className='menu__link' to='/sign-up' >Регестрация</NavLink>
+                    <NavLink className='menu__link' to='/sign-up' >Регистрация</NavLink>
                 }> </Route>
                 <Route path='/' element={
                     <>
