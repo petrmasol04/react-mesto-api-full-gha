@@ -37,7 +37,7 @@ function Register({ onSignup }) {
                 value={password}
                 onChange={handleChangePassword}
             />
-            <button className="section__button">Зарегестрироваться</button>
+            <button className="section__button">Зарегистрироваться</button>
             <p className="section__text">Уже зарегистрированы? <Link to='/sign-in' className="section__link">Войти</Link></p>
         </Section>
     )
