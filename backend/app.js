@@ -4,12 +4,13 @@ const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const cookieParser = require('cookie-parser');
 
+const crypto = require('crypto'); // экспортируем crypto
 const router = require('./routes');
 const handleError = require('./utils/handle-error');
 const cors = require('./middlewares/cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 3000 } = process.env;
+const { PORT } = require('./utils/config');
 
 const app = express();
 
