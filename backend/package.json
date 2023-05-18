@@ -1,5 +1,5 @@
 {
-  "name": "express-mesto-gha",
+  "name": "react-mesto-api-full-gha",
   "version": "1.0.0",
   "description": "# Проект Mesto фронтенд + бэкенд",
   "main": "app.js",
@@ -10,14 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/petrmasol04/express-mesto-gha.git"
+    "url": "git+https://github.com/petrmasol04/react-mesto-api-full-gha.git"
   },
   "author": "Petr",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/petrmasol04/express-mesto-gha/issues"
+    "url": "https://github.com/petrmasol04/react-mesto-api-full-gha/issues"
   },
-  "homepage": "https://github.com/petrmasol04/express-mesto-gha#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "celebrate": "^15.0.1",
