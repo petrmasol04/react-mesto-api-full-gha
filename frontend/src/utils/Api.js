@@ -77,7 +77,8 @@ class Api {
             {
                 headers: this._headers,
                 method: 'PATCH',
-                body: JSON.stringify(avatar)
+                body: JSON.stringify(avatar),
+                credentials: "include"
             })
             .then(res => this._handleRequest(res));
     }
