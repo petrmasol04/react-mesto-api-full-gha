@@ -15,9 +15,9 @@ const auth = (req, res, next) => {
   } catch (err) {
     next(new UnauthorizedError('Необходима авторизация'));
   }
-  req.user = payload; // записываем пейлоуд в объект запроса
+  req.user = payload;
 
-  next(); // про
+  next();
 };
 
 module.exports = {
