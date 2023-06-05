@@ -1,4 +1,4 @@
-const { PORT = 3000, JWT_SECRET = 'some-secret-key' } = process.env;
+const { PORT = 3001, JWT_SECRET = 'some-secret-key' } = process.env;
 
 module.exports = {
   PORT,
