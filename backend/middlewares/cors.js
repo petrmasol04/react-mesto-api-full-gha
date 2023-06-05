@@ -1,8 +1,8 @@
 const allowedCors = [
   'https://mesto.world.nomoredomains.monster',
   'http://mesto.world.nomoredomains.monster',
+  'https://localhost:3001',
   'http://localhost:3001',
-  'http://localhost:3000',
 ];
 
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
